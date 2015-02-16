@@ -16,12 +16,39 @@ public class Results implements Display, FileLog {
 
     public void writeToScreen(){
         for (int i = 0; i < movements.size(); i++){
-            System.out.print(movements.get(i));
+            try{
+                System.out.print(movements.get(i));
+            }
+            catch (IndexOutOfBoundsException e){
+                System.out.println(e.getMessage());
+                System.exit(1);
+            }
+            finally{
+
+            }
         }
     }
 
     public void writeToFile(){
         
+    }
+
+    public void undoLastMove(){
+        if(movements.size() > 0){
+            try{
+                movements.remove((movements.size() - 1));
+            }
+            catch (IndexOutOfBoundsException e){
+                System.out.println(e.getMessage());
+                System.exit(1);
+            }
+            finally{
+                
+            }
+        }
+        else{
+            addToList(0);
+        }
     }
 
     public String toString() {

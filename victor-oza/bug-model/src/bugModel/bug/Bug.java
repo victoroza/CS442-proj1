@@ -31,6 +31,10 @@ public class Bug implements AllDirectionsBug {
         res.addToList(4);
     }
 
+    public void undoPrev(){
+        res.undoLastMove();
+    }
+
     public String toString() {
         String retValue = "\n I am a 2015 Volkswagen Bettle Convertible \n";
         return retValue;
