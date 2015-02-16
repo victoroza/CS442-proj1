@@ -1,19 +1,34 @@
 package bugModel.bug;
 
+import bugModel.results.Results;
+import bugModel.results.Display;
+
 public class Bug implements AllDirectionsBug {
 
-    // private results;
+    private Results res;
+
+    public Bug(Results resIn){
+        res = resIn;
+    }
+
+    public Bug(Display resIn){
+        res = (Results) resIn;
+    }
+
     public void moveRight(){
-
+        res.addToList(1);
     }
+
     public void moveLeft(){
-
+        res.addToList(2);
     }
+
     public void moveUp(){
-
+        res.addToList(3);
     }
-    public void moveDown(){
 
+    public void moveDown(){
+        res.addToList(4);
     }
 
     public String toString() {

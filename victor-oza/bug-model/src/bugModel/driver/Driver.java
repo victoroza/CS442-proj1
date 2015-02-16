@@ -15,10 +15,17 @@ public class Driver{
             System.exit(1);
         }
         
-        AllDirectionsBug b = new Bug();
-        //  Display res = new Results();
-        //  AllDirectionsBug b = new Bug(res);
+        // AllDirectionsBug b = new Bug();
+        Display res = new Results();
+        ((Display)res).writeToScreen();
+
+        AllDirectionsBug b = new Bug(res);
         System.out.println(b);
+        b.moveRight();
+        b.moveLeft();
+        b.moveUp();
+        b.moveDown();
+        res.writeToScreen();
 
         // All test cases
 
