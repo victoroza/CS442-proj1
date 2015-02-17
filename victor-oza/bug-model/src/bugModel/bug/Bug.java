@@ -7,6 +7,11 @@ public class Bug implements AllDirectionsBug {
 
     private Results res;
 
+    public Bug(){
+        System.err.println("Usage: Need to provide a Results type object for Bug.\n IE: Bug(Results res).\n");
+        System.exit(1);    
+    }
+
     public Bug(Results resIn){
         res = resIn;
     }
