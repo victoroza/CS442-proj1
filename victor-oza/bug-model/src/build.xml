@@ -52,7 +52,7 @@
 <target name="run" depends="jar">
         <java jar="${BUILD}/jar/bugModel.jar"  fork="true">
         	<arg value="${arg0}"/>
-       		<arg value="3"/>
+       		<arg value="2"/>
         	<arg value="bugLog.txt"/>
         </java>
 	

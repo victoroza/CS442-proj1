@@ -20,10 +20,13 @@ public class Results implements Display, FileLog, StoreMovements{
     }
 
     public void addToList(int movement){
+        Debug.printToStdout(3, "Results addToList method called.");
+        Debug.printToStdout(2,  "Item, " + movement + ", was added to Results.");
         movements.add(movement);
     }
 
     public void writeToScreen(){
+        Debug.printToStdout(3, "Results writeToScreen method called.");
         for (int i = 0; i < movements.size(); i++){
             try{
                 System.out.print(movements.get(i));
@@ -39,6 +42,7 @@ public class Results implements Display, FileLog, StoreMovements{
     }
 
     public Writer openFile(String filepath){
+        Debug.printToStdout(3, "Results openFile method called.");
         File file = new File(filepath);
         Writer fileWriter = null;
         try{
@@ -55,6 +59,7 @@ public class Results implements Display, FileLog, StoreMovements{
     }
 
     public void writeToFile(String filepath){
+        Debug.printToStdout(3, "Results writeToFile method called.");
         Writer fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try{
@@ -87,6 +92,7 @@ public class Results implements Display, FileLog, StoreMovements{
     }
 
     public void undoLastMove(){
+        Debug.printToStdout(3, "Results undoLastMove method called.");
         if(movements.size() > 0){
             try{
                 movements.remove((movements.size() - 1));
@@ -105,6 +111,7 @@ public class Results implements Display, FileLog, StoreMovements{
     }
 
     public String toString() {
+        Debug.printToStdout(3, "Results toString method called.");
         String retValue = "\n Results toString \n";
         return retValue;
     }
