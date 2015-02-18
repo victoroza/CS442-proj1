@@ -10,21 +10,48 @@ import java.io.IOException;
 import java.io.Writer;
 
 
-
+/** Results Class which will handle storage of movement
+ *
+ * @author Victor Oza
+ */
 public class Results implements Display, FileLog, StoreMovements{
     private ArrayList<Integer> movements;
 
+    /** Default Results constructor
+     *  Instantiates movements ArrayList
+     *
+     */
     public Results(){
         movements = new ArrayList<Integer>();
         Debug.printToStdout(4, "Results Constuctor Called.");
     }
 
+    /** Used to add value to Results data structure.
+     *
+     *  @param movement value to append to data structure
+     */
     public void addToList(int movement){
         Debug.printToStdout(3, "Results addToList method called.");
         Debug.printToStdout(2,  "Item, " + movement + ", was added to Results.");
-        movements.add(movement);
+        try{
+            boolean addedValue = movements.add(movement);
+        }
+        catch (IllegalArgumentException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        catch (NullPointerException e){
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+        finally{
+
+        }
     }
 
+    /** Used to print values in data structure out to stdout.
+     *
+     */
     public void writeToScreen(){
         Debug.printToStdout(3, "Results writeToScreen method called.");
         for (int i = 0; i < movements.size(); i++){
@@ -41,6 +68,11 @@ public class Results implements Display, FileLog, StoreMovements{
         }
     }
 
+    /** Used to open file and create fileWriter instance.
+     *
+     *  @param filepath     String of filepath to write log to
+     *  @return             FileWriter instance pointing to filepath
+     */
     public Writer openFile(String filepath){
         Debug.printToStdout(3, "Results openFile method called.");
         File file = new File(filepath);
@@ -58,6 +90,9 @@ public class Results implements Display, FileLog, StoreMovements{
         return fileWriter;
     }
 
+    /** Used to write values in data structure to file specified.
+     *
+     */
     public void writeToFile(String filepath){
         Debug.printToStdout(3, "Results writeToFile method called.");
         Writer fileWriter = null;
@@ -91,6 +126,10 @@ public class Results implements Display, FileLog, StoreMovements{
         }
     }
 
+    /** Used to remove last value from data structure.
+     *  If no value to remove, a 0 should be appended.
+     *
+     */
     public void undoLastMove(){
         Debug.printToStdout(3, "Results undoLastMove method called.");
         if(movements.size() > 0){
@@ -110,6 +149,10 @@ public class Results implements Display, FileLog, StoreMovements{
         }
     }
 
+    /** toString value for Results class
+     *
+     *  @return     String representation of Results Class
+     */
     public String toString() {
         Debug.printToStdout(3, "Results toString method called.");
         String retValue = "\n Results toString \n";

@@ -8,6 +8,10 @@ import bugModel.bug.AllDirectionsBug;
 import bugModel.bug.Bug;
 import bugModel.util.Debug;
 
+/** Driver Class which will test the classes
+ *
+ * @author Victor Oza
+ */
 public class Driver{
 
     public static void main(String args[]) {
